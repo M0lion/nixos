@@ -25,7 +25,10 @@ return require('packer').startup(function(use)
 	}
 
 	-- tokyonight: Color scheme
-	use('folke/tokyonight.nvim')
+	-- use('folke/tokyonight.nvim')
+	
+	-- catppuccin
+	use('catppuccin/nvim', {as = 'catppuccin'})
 
 	-- Treesitter: Generates AST for syntax highlighting, (and stuff?)
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})

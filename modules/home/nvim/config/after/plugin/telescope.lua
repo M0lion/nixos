@@ -13,4 +13,3 @@ vim.keymap.set('n', '<leader>ps', builtin.lsp_document_symbols, {})
 vim.keymap.set("n", "<leader>pd", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>per", builtin.diagnostics, {})
 vim.keymap.set("n", "<leader>prr", builtin.lsp_references, {})
-

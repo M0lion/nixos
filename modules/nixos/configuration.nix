@@ -46,7 +46,7 @@
   users.users.bjorn = {
     isNormalUser = true;
     description = "Bjørn Moholt";
-    extraGroups = [ "networkmanager" "wheel" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "plugdev" ];
     packages = with pkgs; [];
   };
 
@@ -72,6 +72,8 @@
 		nodejs
 		yarn
 		keymapp
+		libusb
+		gtk3
   ];
 
   fonts.packages = with pkgs; [
@@ -105,12 +107,14 @@
   programs.hyprland.enable = true;
 
   # Keymapp
-	services.udev.rules = [
-	  "ATTRS{idVendor}==\"16c0\", ATTRS{idProduct}==\"04[789B]?\", ENV{ID_MM_DEVICE_IGNORE}=\"1\""
-		"ATTRS{idVendor}==\"16c0\", ATTRS{idProduct}==\"04[789A]?\", ENV{MTP_NO_PROBE}=\"1\""
-		"SUBSYSTEMS==\"usb\", ATTRS{idVendor}==\"16c0\", ATTRS{idProduct}==\"04[789ABCD]?\", MODE:=\"0666\""
-		"KERNEL==\"ttyACM*\", ATTRS{idVendor}==\"16c0\", ATTRS{idProduct}==\"04[789B]?\", MODE:=\"0666\""
-	];
+	services.udev.enable = true;
+	services.udev.extraRules =
+	  ''
+			ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789B]?", ENV{ID_MM_DEVICE_IGNORE}="1"
+			ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789A]?", ENV{MTP_NO_PROBE}="1"
+			SUBSYSTEMS=="usb", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789ABCD]?", MODE:="0666"
+			KERNEL=="ttyACM*", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789B]?", MODE:="0666"
+		'';
 
   # VA-API
   nixpkgs.config.packageOverrides = pkgs: {
