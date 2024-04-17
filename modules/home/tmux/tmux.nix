@@ -3,7 +3,8 @@
 	programs.tmux.enable = true;
 
   home.file.tmux = {
-    source = ./config;
+		enable = true;
+    source = ./tmux.conf;
     target = ".config/tmux";
   };
 }
