@@ -1,10 +1,12 @@
 { ... }:
 {
-	programs.tmux.enable = true;
+	home.packages = [
+	  tmux
+	];
 
   home.file.tmux = {
 		enable = true;
     source = ./tmux.conf;
-    target = ".config/tmux";
+    target = ".config/tmux/tmux.conf";
   };
 }
