@@ -57,7 +57,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
-    tmux
     git
     firefox
     slack
@@ -69,6 +68,7 @@
     polybar
     nerdfonts
     unzip
+		nodejs
   ];
 
   fonts.packages = with pkgs; [
