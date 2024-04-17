@@ -1,9 +1,5 @@
 { ... }:
 {
-	home.packages = [
-	  tmux
-	];
-
   home.file.tmux = {
 		enable = true;
     source = ./tmux.conf;

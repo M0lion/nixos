@@ -57,6 +57,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
+		tmux
     git
     firefox
     slack
@@ -69,6 +70,8 @@
     nerdfonts
     unzip
 		nodejs
+		yarn
+		keymapp
   ];
 
   fonts.packages = with pkgs; [
