@@ -9,8 +9,8 @@
 
 	home.file.tpm = {
 		enable = true;
-		source = ./tpm;
-		target = ".config/tmux/plugins/tpm";
+		source = ./tmux;
+		target = ".config/tmux/plugins/catppuccin";
 		recursive = true;
 	};
 }

@@ -1,3 +1,3 @@
-[submodule "modules/home/tmux/tpm"]
-	path = modules/home/tmux/tpm
-	url = https://github.com/tmux-plugins/tpm
+[submodule "modules/home/tmux/tmux"]
+	path = modules/home/tmux/tmux
+	url = https://github.com/catppuccin/tmux
