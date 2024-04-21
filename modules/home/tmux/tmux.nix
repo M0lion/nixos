@@ -4,6 +4,12 @@
 		enable = true;
     source = ./tmux.conf;
     target = ".config/tmux/tmux.conf";
-		recursive = true;
   };
+
+	home.file.tpm = {
+		enable = true;
+		source = ./tpm-init.sh
+		target = ".config/tmux/tpm-init.conf"
+		executable = true;
+	};
 }
