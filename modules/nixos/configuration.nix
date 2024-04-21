@@ -27,6 +27,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+	# Tailscaele
+	services.tailscale.enable = true;
+	services.tailscale.useRoutingFeatures = "both";
+
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
@@ -72,13 +76,17 @@
 		nodejs
 		yarn
 		keymapp
-		libusb
-		gtk3
+    openssl
+		ripgrep
+		ly
   ];
 
   fonts.packages = with pkgs; [
     nerdfonts
   ];
+
+	# Direnv
+	programs.direnv.enable = true;
 
   #Steam
   programs.steam.enable = true;
