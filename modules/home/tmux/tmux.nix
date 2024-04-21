@@ -6,11 +6,4 @@
     target = ".config/tmux/tmux.conf";
 		recursive = true;
   };
-
-	home.file.tpm = {
-		enable = true;
-		source = ./tmux;
-		target = ".config/tmux/plugins/catppuccin";
-		recursive = true;
-	};
 }

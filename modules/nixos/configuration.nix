@@ -62,6 +62,7 @@
   environment.systemPackages = with pkgs; [
     alacritty
 		tmux
+		tmuxPlugins.catppuccin
     git
     firefox
     slack
