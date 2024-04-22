@@ -8,8 +8,8 @@
 
 	home.file.tpm = {
 		enable = true;
-		source = ./tpm-init.sh
-		target = ".config/tmux/tpm-init.conf"
+		source = ./tpm-init.sh;
+		target = ".config/tmux/tpm-init.sh";
 		executable = true;
 	};
 }

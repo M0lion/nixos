@@ -4,6 +4,7 @@
   imports = [
     ./nvim/nvim.nix
 		./tmux/tmux.nix
+		./i3/i3.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

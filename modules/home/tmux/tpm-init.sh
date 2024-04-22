@@ -1,5 +1,5 @@
 if [ -d "$TMUX_PLUGIN_MANAGER_PATH" ]; then
-	cd $TMUX_PLUGIN_MANAGER_PATH
+	cd $TMUX_PLUGIN_MANAGER_PATH/tpm
 	git pull
 else
 	mkdir -p $TMUX_PLUGIN_MANAGER_PATH

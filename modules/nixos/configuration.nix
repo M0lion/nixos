@@ -8,6 +8,7 @@
   imports =
     [
       inputs.home-manager.nixosModules.default
+			./gui/i3.nix
     ];
 
   # Bootloader.
@@ -65,9 +66,6 @@
     git
     firefox
     slack
-    fuzzel
-    rofi-wayland
-    waybar
     pavucontrol
     dmenu-bluetooth
     polybar
@@ -90,13 +88,7 @@
 
   #Steam
   programs.steam.enable = true;
-
-  # For slack wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
-  # For hyprland cursor
-  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
-
   # 1Password
   programs._1password.enable = true;
   programs._1password-gui = {
@@ -112,8 +104,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  programs.hyprland.enable = true;
-
   # Keymapp
 	services.udev.enable = true;
 	services.udev.extraRules =
@@ -128,6 +118,7 @@
   nixpkgs.config.packageOverrides = pkgs: {
     intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
+
   # Enable OpenGL
   hardware.opengl = {
     enable = true;
