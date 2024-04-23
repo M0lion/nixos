@@ -191,8 +191,10 @@ bar {
 
 # Keyboard layout
 exec setxkbmap -layout no
-
 bindsym $mod+Shift+a exec --no-startup-id setxkbmap -layout no
 
 # Screen lock
-exec --no-startup-id xautolock -time 15 -locker 'i3lock -i ~/Pictures/lockscreen.png'
+exec --no-startup-id xautolock -time 15 -locker 'i3lock -i ~/Pictures/lockscreen.png && feh --bg-fill --randomize ~/wallpapers/*'
+
+# Wallpaper
+exec --no-startup-id feh --bg-fill --randomize ~/wallpapers/*
