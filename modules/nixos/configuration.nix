@@ -9,6 +9,7 @@
     [
       inputs.home-manager.nixosModules.default
 			./gui/i3.nix
+			./test.nix
     ];
 
   # Bootloader.
@@ -27,6 +28,18 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+	# zsh
+	programs.zsh = {
+		enable = true;
+		enableCompletion = true;
+		syntaxHighlighting.enable = true;
+
+		shellAliases = {
+			ll = "ls -l";
+			update = "sudo nixos-rebuild switch";
+		};
+	};
 
 	# Tailscaele
 	services.tailscale.enable = true;
@@ -61,27 +74,62 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+		# Terminal
     alacritty
-		tmux
-    git
+
+		# Browser
     firefox
+
+		# Slack
     slack
+
+		# Audio
     pavucontrol
-    dmenu-bluetooth
+
+		# Bluetooth
+		dmenu-bluetooth
+
+		# Desktop
     polybar
+
+		# Font
     nerdfonts
-    unzip
+
+		# Dev tools
 		nodejs
 		yarn
+
+		# Ergodox
 		keymapp
-    openssl
+
+		# Utils
 		ripgrep
+		openssl
+		unzip
+		git
+		tmux
+
+		# Login Manager
 		ly
+
+		# Build tools
+		gcc
+
+		# Python
+		python3
+
+		# Notifications
+		dunst
+		libnotify
   ];
 
+	# Fonts
   fonts.packages = with pkgs; [
     nerdfonts
   ];
+
+	# Printer
+	services.printing.enable = true;
 
 	# Direnv
 	programs.direnv.enable = true;
@@ -104,7 +152,7 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Keymapp
+  # Keymapp - Ergodox
 	services.udev.enable = true;
 	services.udev.extraRules =
 	  ''
@@ -114,7 +162,7 @@
 			KERNEL=="ttyACM*", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789B]?", MODE:="0666"
 		'';
 
-  # VA-API
+  # VA-API - Firefox gpu
   nixpkgs.config.packageOverrides = pkgs: {
     intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
@@ -140,6 +188,14 @@
       "bjorn" = import ../home/home.nix;
     };
   };
+
+	# ssh
+	services.openssh = {
+		enable = true;
+		settings.PasswordAuthentication = false;
+		settings.KbdInteractiveAuthentication = false;
+		settings.PermitRootLogin = "yes";
+	};
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
@@ -185,9 +241,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
