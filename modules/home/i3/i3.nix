@@ -8,12 +8,8 @@ catppuccin-i3 = pkgs.fetchFromGitHub {
 };
 in 
 {
-  home.file.i3 = {
-		enable = true;
-    source = ./config;
-    target = ".config/i3/";
+	xdg.configFile."i3" = {
+		source = ./config;
 		recursive = true;
-  };
-
-	xdg.configFile."i3/Catppuccin Latte.theme".source = "${catppuccin-i3}/themes/catppuccin-mocha";
+	};
 }
