@@ -40,6 +40,11 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+		(pkgs.makeDesktopItem {
+			name = "Bluetooth";
+			desktopName = "Bluetooth";
+			exec = "env DMENU_BLUETOOTH_LAUNCHER=rofi dmenu-bluetooth";
+		})
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

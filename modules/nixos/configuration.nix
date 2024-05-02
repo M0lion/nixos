@@ -9,7 +9,6 @@
     [
       inputs.home-manager.nixosModules.default
 			./gui/i3.nix
-			./test.nix
     ];
 
   # Bootloader.
@@ -148,7 +147,6 @@
     enable = true;
     powerOnBoot = true;
   };
-  services.blueman.enable = true;
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
