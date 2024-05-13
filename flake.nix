@@ -8,15 +8,21 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+		hyprland = {
+			url = "./modules/flakes/hyprland";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, hyprland, ... }@inputs: {
     nixosConfigurations.bjorn = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        modules/nixos/configuration.nix
-	hardware/bjorn.nix
+				modules/nixos/configuration.nix
+				hardware/bjorn.nix
         inputs.home-manager.nixosModules.default
+				hyprland.nixosModules.hyprland
       ];
     };
   };

@@ -12,4 +12,6 @@ in
 		source = ./config;
 		recursive = true;
 	};
+
+	xdg.configFile."i3/catppuccin".source = "${catppuccin-i3}/themes/catppuccin-mocha";
 }
