@@ -62,12 +62,26 @@
   users.users.bjorn = {
     isNormalUser = true;
     description = "Bjørn Moholt";
-    extraGroups = [ "networkmanager" "wheel" "audio" "plugdev" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "plugdev" "docker" ];
     packages = with pkgs; [];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+	# Docker
+	virtualisation.docker.enable = true;
+
+	# Audio
+  sound.enable = true;
+	security.rtkit.enable = true;
+	services.pipewire = {
+		enable = true;
+		alsa.enable = true;
+		alsa.support32Bit = true;
+		pulse.enable = true;
+		jack.enable = true;
+	};
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -78,8 +92,9 @@
 		# Browser
     firefox
 
-		# Slack
+		# Messaging
 		slack
+		discord
 
 		# Audio
     pavucontrol
@@ -152,8 +167,6 @@
     enable = true;
     powerOnBoot = true;
   };
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   # Keymapp - Ergodox
 	services.udev.enable = true;

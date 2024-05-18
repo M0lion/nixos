@@ -17,14 +17,14 @@
 				installPhase = ''
 					mkdir -p $out/share/wayland-sessions
 					cp -r $src/config $out/config
-					cp $src/hyprland.desktop $out/share/wayland-sessions/hyprland.desktop
+					cp $src/hyprland.desktop $out/share/wayland-sessions/MyHyprland.desktop
 				'';
 			} // {
 				providedSessions = [ sessionName ];
 			};
 		in
 		{
-			environment.sessionVariables = {
+			environment.sessionVariables = rec {
 				HYPRLAND_CONFIG_HOME = "${hyprland-config.out}/config";
 			};
 
