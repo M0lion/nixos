@@ -1,4 +1,4 @@
-{
+	{
   description = "Nixos config flake";
 
   inputs = {
@@ -20,7 +20,16 @@
       specialArgs = {inherit inputs;};
       modules = [
 				modules/nixos/configuration.nix
-				hardware/bjorn.nix
+				hardware/bjorn-nix.nix
+        inputs.home-manager.nixosModules.default
+				hyprland.nixosModules.hyprland
+      ];
+    };
+    nixosConfigurations.bjorn-home = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+				modules/nixos/configuration.nix
+				hardware/bjorn-home.nix
         inputs.home-manager.nixosModules.default
 				hyprland.nixosModules.hyprland
       ];
