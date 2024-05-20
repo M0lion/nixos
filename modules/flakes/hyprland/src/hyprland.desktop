@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=My Hyprland
 Comment=My Hyprland
-Exec=Hyprland --config $HYPRLAND_CONFIG_HOME/hyprland.conf
+Exec=MyHyprland
 Type=Application
 

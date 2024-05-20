@@ -14,7 +14,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "bjorn"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -27,19 +26,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-	# zsh
-	programs.zsh = {
-		enable = true;
-		enableCompletion = true;
-		syntaxHighlighting.enable = true;
-
-		shellAliases = {
-			ll = "ls -l";
-			update = "sudo nixos-rebuild switch";
-		};
-	};
-
-	# Tailscaele
 	services.tailscale.enable = true;
 	services.tailscale.useRoutingFeatures = "both";
 
@@ -167,6 +153,7 @@
     enable = true;
     powerOnBoot = true;
   };
+	services.blueman.enable = true;
 
   # Keymapp - Ergodox
 	services.udev.enable = true;

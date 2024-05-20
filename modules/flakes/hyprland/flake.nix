@@ -16,24 +16,29 @@
 				src = ./src;
 				installPhase = ''
 					mkdir -p $out/share/wayland-sessions
+					mkdir -p $out/bin
 					cp -r $src/config $out/config
 					cp $src/hyprland.desktop $out/share/wayland-sessions/MyHyprland.desktop
+					echo "Hyprland --config $out/config/hyprland.conf" > $out/bin/MyHyprland.sh
+					chmod +x $out/bin/MyHyprland.sh
+					echo "echo $out" > $out/bin/hyprland-config
+					chmod +x $out/bin/hyprland-config
+					echo "cp $(hyprland-config)/config/hyprland.conf ~/.config/hypr/hyprland.conf" > $out/bin/hyprland-reload
+					chmod +x $out/bin/hyprland-reload
 				'';
 			} // {
 				providedSessions = [ sessionName ];
 			};
 		in
 		{
-			environment.sessionVariables = rec {
-				HYPRLAND_CONFIG_HOME = "${hyprland-config.out}/config";
-			};
-
 			environment.systemPackages = with pkgs; [
 				# App launcher
 				rofi-wayland
 
 				# Status bar
 				polybar
+
+				hyprland-config
 			];
 
 			# Electron hack
