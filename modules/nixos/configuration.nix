@@ -23,9 +23,6 @@
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
 	services.tailscale.enable = true;
 	services.tailscale.useRoutingFeatures = "both";
 

@@ -21,6 +21,7 @@
       modules = [
 				modules/nixos/configuration.nix
 				hardware/bjorn-nix.nix
+				machines/bjorn-nix.nix
         inputs.home-manager.nixosModules.default
 				hyprland.nixosModules.hyprland
       ];
@@ -30,6 +31,7 @@
       modules = [
 				modules/nixos/configuration.nix
 				hardware/bjorn-home.nix
+				machines/bjorn-home.nix
         inputs.home-manager.nixosModules.default
 				hyprland.nixosModules.hyprland
       ];
