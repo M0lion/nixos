@@ -13,9 +13,13 @@
 			url = "./modules/flakes/hyprland";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		bash-scripts = {
+			url = "./modules/flakes/bash-scripts";
+		};
   };
 
-  outputs = { self, nixpkgs, hyprland, ... }@inputs: {
+  outputs = { self, nixpkgs, hyprland, bash-scripts, ... }@inputs: {
     nixosConfigurations.bjorn = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
@@ -24,6 +28,7 @@
 				machines/bjorn-nix.nix
         inputs.home-manager.nixosModules.default
 				hyprland.nixosModules.hyprland
+				bash-scripts.nixosModules.bash-scripts
       ];
     };
     nixosConfigurations.bjorn-home = nixpkgs.lib.nixosSystem {
@@ -34,6 +39,7 @@
 				machines/bjorn-home.nix
         inputs.home-manager.nixosModules.default
 				hyprland.nixosModules.hyprland
+				bash-scripts.nixosModules.bash-scripts
       ];
     };
   };

@@ -28,12 +28,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-EHtt9JyimcK0oK4HK20hm9FSISlpo2EClkz9VRk+uV8=",
-        "path": "/nix/store/aazpj3gia1n51p32swlms51g5qqviisn-source/modules/flakes/hyprland",
+        "narHash": "sha256-7iUwpiGq7zn9Y/nKz3GspALOEm+vaqlZDex8ulFyZ2U=",
+        "path": "/nix/store/jm162ps01lhqxfxhvc1mbc374wfwkyv2-source/modules/flakes/hyprland",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/aazpj3gia1n51p32swlms51g5qqviisn-source/modules/flakes/hyprland",
+        "path": "/nix/store/jm162ps01lhqxfxhvc1mbc374wfwkyv2-source/modules/flakes/hyprland",
         "type": "path"
       }
     },
