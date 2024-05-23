@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "bash-scripts": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-Su5b8qSRUgMYTRv10RP5DTcQRODHBEGKAZeSUhI/Wqg=",
+        "path": "/nix/store/4gd4w1nclzhnldbaiv2q1fa4r76ky1xc-source/modules/flakes/bash-scripts",
+        "type": "path"
+      },
+      "original": {
+        "path": "/nix/store/4gd4w1nclzhnldbaiv2q1fa4r76ky1xc-source/modules/flakes/bash-scripts",
+        "type": "path"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -29,21 +44,37 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-7iUwpiGq7zn9Y/nKz3GspALOEm+vaqlZDex8ulFyZ2U=",
-        "path": "/nix/store/jm162ps01lhqxfxhvc1mbc374wfwkyv2-source/modules/flakes/hyprland",
+        "path": "/nix/store/4gd4w1nclzhnldbaiv2q1fa4r76ky1xc-source/modules/flakes/hyprland",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/jm162ps01lhqxfxhvc1mbc374wfwkyv2-source/modules/flakes/hyprland",
+        "path": "/nix/store/4gd4w1nclzhnldbaiv2q1fa4r76ky1xc-source/modules/flakes/hyprland",
         "type": "path"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716137900,
-        "narHash": "sha256-sowPU+tLQv8GlqtVtsXioTKeaQvlMz/pefcdwg8MvfM=",
+        "lastModified": 1716293225,
+        "narHash": "sha256-pU9ViBVE3XYb70xZx+jK6SEVphvt7xMTbm6yDIF4xPs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "6c0b7a92c30122196a761b440ac0d46d3d9954f1",
+        "rev": "3eaeaeb6b1e08a016380c279f8846e0bd8808916",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1716293225,
+        "narHash": "sha256-pU9ViBVE3XYb70xZx+jK6SEVphvt7xMTbm6yDIF4xPs=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3eaeaeb6b1e08a016380c279f8846e0bd8808916",
         "type": "github"
       },
       "original": {
@@ -55,9 +86,10 @@
     },
     "root": {
       "inputs": {
+        "bash-scripts": "bash-scripts",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

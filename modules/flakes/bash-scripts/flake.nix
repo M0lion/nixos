@@ -1,17 +1,15 @@
 {
 	description = "Bash scripts";
 
-	inputs = {};
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  };
 
-	outputs = { self, ... }:
-		{
+  outputs = { self, nixpkgs }:  {
 			nixosModules.bash-scripts = { pkgs, ... }:
 			let
 				stdenv = pkgs.stdenv;
-			in
-			{
-				environment.systemPackages = {
-					(stdenv.mkDerivation {
+				bash-scripts = stdenv.mkDerivation {
 						name = "bash-scripts";
 						src = ./scripts;
 						installPhase = ''
@@ -19,8 +17,12 @@
 							cp ./* $out/bin/
 							chmod +x $out/bin/*
 						'';
-					};)
-				};
+					};
+			in
+			{
+				environment.systemPackages = [
+					bash-scripts
+				];
 			};
 		};
 }

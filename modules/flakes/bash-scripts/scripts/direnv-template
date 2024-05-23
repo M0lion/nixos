@@ -1,8 +1,11 @@
 #! /bin/bash
-if [ -z $1 ] then
-	$output = $PWD
+set -e
+
+if [ -z $1 ]; then
+	output=$(pwd)
 else
-	$output = $1
+	output=$1
 fi
 
 nix flake new -t github:nix-community/nix-direnv $output
+direnv allow
