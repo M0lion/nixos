@@ -20,7 +20,7 @@
   };
 
   outputs = { self, nixpkgs, hyprland, bash-scripts, ... }@inputs: {
-    nixosConfigurations.bjorn = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.bjorn-nix = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
 				modules/nixos/configuration.nix
