@@ -123,6 +123,9 @@
 
 		# Games
 		lutris
+
+		# Appimage
+		appimage-run
   ];
 
 	# Fonts
